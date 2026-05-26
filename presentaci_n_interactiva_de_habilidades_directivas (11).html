@@ -1,0 +1,928 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Habilidades Directivas y Gestión de Personas - Presentación Interactiva</title>
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+        }
+        .slide {
+            display: none;
+            animation: fadeIn 0.4s ease-in-out forwards;
+        }
+        .slide.active {
+            display: flex;
+        }
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+    </style>
+</head>
+<body class="bg-slate-900 text-slate-100 min-h-screen flex flex-col justify-between overflow-x-hidden selection:bg-indigo-500 selection:text-white">
+
+    <!-- HEADER / TOP NAVIGATION -->
+    <header class="bg-slate-800/80 backdrop-blur border-b border-slate-700 px-6 py-4 flex justify-between items-center sticky top-0 z-50">
+        <div class="flex items-center gap-3">
+            <div class="w-3 h-3 rounded-full bg-indigo-500 animate-pulse"></div>
+            <span class="text-xs font-semibold uppercase tracking-widest text-indigo-400">Programa de Habilidades Directivas y RRHH</span>
+        </div>
+        <div class="hidden md:flex items-center gap-6 text-sm">
+            <button onclick="goToSlide(1)" class="hover:text-indigo-400 transition-colors">Inicio</button>
+            <button onclick="goToSlide(2)" class="hover:text-indigo-400 transition-colors">Índice</button>
+            <span id="slide-number-top" class="text-slate-400 font-mono">1 / 18</span>
+        </div>
+    </header>
+
+    <!-- PRESENTATION CANVAS -->
+    <main class="flex-grow flex items-center justify-center p-4 md:p-8">
+        <div class="w-full max-w-5xl bg-slate-850 rounded-2xl border border-slate-800 shadow-2xl overflow-hidden min-h-[600px] flex flex-col justify-between p-6 md:p-10 relative">
+            
+            <!-- SLIDE 1: TITLE SLIDE -->
+            <div id="slide-1" class="slide active flex-col justify-center items-center text-center h-full my-auto space-y-6">
+                <span class="px-3 py-1 bg-indigo-500/10 text-indigo-400 rounded-full text-xs font-medium border border-indigo-500/20">Metodología Práctica para Gestión de Personas</span>
+                <h1 class="text-4xl md:text-6xl font-extrabold tracking-tight bg-gradient-to-r from-white via-slate-100 to-indigo-400 bg-clip-text text-transparent">
+                    Habilidades Directivas y Gestión de Personas
+                </h1>
+                <p class="text-lg md:text-xl text-slate-400 max-w-2xl font-light">
+                    Un viaje práctico a través del liderazgo, la motivación, la resolución de conflictos, la negociación de convenios y la autorregulación emocional en el departamento de Recursos Humanos. 
+                                     
+                                </p>
+                                 
+                                 H. Torrez y D. Ruiz. 2026
+                <div class="pt-6">
+                    <button onclick="nextSlide()" class="px-8 py-3 bg-indigo-600 hover:bg-indigo-500 text-white rounded-xl font-medium shadow-lg shadow-indigo-600/30 transition-all transform hover:-translate-y-0.5">
+                        Comenzar Presentación
+                    </button>
+                </div>
+            </div>
+
+            <!-- SLIDE 2: INDEX / AGENDA -->
+            <div id="slide-2" class="slide flex-col justify-start space-y-6">
+                <div>
+                    <span class="text-indigo-400 text-xs font-bold uppercase tracking-wider">Plan de Ruta</span>
+                    <h2 class="text-3xl font-bold mt-1">Estructura del Programa (Enfoque RRHH)</h2>
+                </div>
+                <div class="grid grid-cols-1 md:grid-cols-5 gap-4 pt-4">
+                    <!-- Tema 1 -->
+                    <div onclick="goToSlide(3)" class="bg-slate-800/50 p-5 rounded-xl border border-slate-700/50 hover:border-indigo-500/50 hover:bg-slate-800 cursor-pointer transition-all group">
+                        <div class="text-2xl mb-3 text-indigo-400 group-hover:scale-110 transition-transform">🎯</div>
+                        <span class="text-xs text-indigo-300 font-semibold uppercase">Tema 1</span>
+                        <h3 class="font-bold text-base mt-1">Habilidades Directivas</h3>
+                        <p class="text-xs text-slate-400 mt-2">Liderazgo situacional, gestión de la diversidad y plantillas híbridas.</p>
+                    </div>
+                    <!-- Tema 2 -->
+                    <div onclick="goToSlide(6)" class="bg-slate-800/50 p-5 rounded-xl border border-slate-700/50 hover:border-emerald-500/50 hover:bg-slate-800 cursor-pointer transition-all group">
+                        <div class="text-2xl mb-3 text-emerald-400 group-hover:scale-110 transition-transform">🔥</div>
+                        <span class="text-xs text-emerald-300 font-semibold uppercase">Tema 2</span>
+                        <h3 class="font-bold text-base mt-1">Técnicas de Motivación</h3>
+                        <p class="text-xs text-slate-400 mt-2">Salario emocional, conciliación familiar y fidelización del talento.</p>
+                    </div>
+                    <!-- Tema 3 -->
+                    <div onclick="goToSlide(9)" class="bg-slate-800/50 p-5 rounded-xl border border-slate-700/50 hover:border-rose-500/50 hover:bg-slate-800 cursor-pointer transition-all group">
+                        <div class="text-2xl mb-3 text-rose-400 group-hover:scale-110 transition-transform">⚡</div>
+                        <span class="text-xs text-rose-300 font-semibold uppercase">Tema 3</span>
+                        <h3 class="font-bold text-base mt-1">Resolución de Conflictos</h3>
+                        <p class="text-xs text-slate-400 mt-2">Mediación en choque de procesos entre mánagers de línea y RRHH.</p>
+                    </div>
+                    <!-- Tema 4 -->
+                    <div onclick="goToSlide(12)" class="bg-slate-800/50 p-5 rounded-xl border border-slate-700/50 hover:border-amber-500/50 hover:bg-slate-800 cursor-pointer transition-all group">
+                        <div class="text-2xl mb-3 text-amber-400 group-hover:scale-110 transition-transform">🤝</div>
+                        <span class="text-xs text-amber-300 font-semibold uppercase">Tema 4</span>
+                        <h3 class="font-bold text-base mt-1">Técnicas de Negociación</h3>
+                        <p class="text-xs text-slate-400 mt-2">Convenios colectivos, acuerdos laborales y relaciones sindicales.</p>
+                    </div>
+                    <!-- Tema 5 -->
+                    <div onclick="goToSlide(15)" class="bg-slate-800/50 p-5 rounded-xl border border-slate-700/50 hover:border-purple-500/50 hover:bg-slate-800 cursor-pointer transition-all group">
+                        <div class="text-2xl mb-3 text-purple-400 group-hover:scale-110 transition-transform">🧘</div>
+                        <span class="text-xs text-purple-300 font-semibold uppercase">Tema 5</span>
+                        <h3 class="font-bold text-base mt-1">Autogestión Emocional</h3>
+                        <p class="text-xs text-slate-400 mt-2">Comunicación de despidos y contención en situaciones críticas.</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- SLIDE 3: TEMA 1 - CASO PRÁCTICO -->
+            <div id="slide-3" class="slide flex-col justify-start space-y-6">
+                <div class="flex justify-between items-start">
+                    <div>
+                        <span class="text-indigo-400 text-xs font-bold uppercase tracking-wider">Tema 1: Habilidades Directivas</span>
+                        <h2 class="text-3xl font-bold mt-1">Caso Práctico: El Dilema de la Plantilla Híbrida</h2>
+                    </div>
+                    <span class="px-3 py-1 bg-indigo-500/10 text-indigo-400 rounded-lg text-xs font-mono">Reto RRHH</span>
+                </div>
+                
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-6 items-center">
+                    <div class="bg-slate-800/40 p-6 rounded-xl border border-slate-700/60 space-y-4">
+                        <h3 class="font-bold text-lg text-indigo-300">Fractura Organizativa</h3>
+                        <p class="text-sm text-slate-300 leading-relaxed">
+                            Una empresa multinacional aprueba un modelo de trabajo híbrido. Tras seis meses, se detecta un grave problema en el clima laboral. Los mánagers tradicionales exigen presencialidad estricta para monitorizar tareas mediante microgestión.
+                        </p>
+                        <p class="text-sm text-slate-300 leading-relaxed">
+                            Los perfiles senior exigen flexibilidad absoluta o amenazan con marcharse; los recién incorporados (juniors) se sienten aislados, perdidos y con un proceso de acogida (*onboarding*) totalmente ineficaz.
+                        </p>
+                    </div>
+                    <div class="space-y-4">
+                        <h3 class="font-bold text-lg text-white">Retos para el Estudiante (Dirección de RRHH)</h3>
+                        <div class="flex gap-3 items-start">
+                            <div class="w-6 h-6 rounded-full bg-indigo-500/20 text-indigo-400 flex items-center justify-center font-bold text-xs shrink-0 mt-0.5">1</div>
+                            <p class="text-sm text-slate-300">¿Cómo capacitar a los mandos intermedios en <strong>Liderazgo Situacional</strong> para gestionar equipos distribuidos sin caer en el control punitivo?</p>
+                        </div>
+                        <div class="flex gap-3 items-start">
+                            <div class="w-6 h-6 rounded-full bg-indigo-500/20 text-indigo-400 flex items-center justify-center font-bold text-xs shrink-0 mt-0.5">2</div>
+                            <p class="text-sm text-slate-300">Diseña una estructura de seguimiento para los perfiles junior que combine autonomía y soporte cercano sin saturar la agenda.</p>
+                        </div>
+                        <div class="flex gap-3 items-start">
+                            <div class="w-6 h-6 rounded-full bg-indigo-500/20 text-indigo-400 flex items-center justify-center font-bold text-xs shrink-0 mt-0.5">3</div>
+                            <p class="text-sm text-slate-300">Establece pautas organizativas que dejen claros los flujos de comunicación síncrona y asíncrona de la compañía.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- SLIDE 4: TEMA 1 - TEST INTERACTIVO -->
+            <div id="slide-4" class="slide flex-col justify-start space-y-6">
+                <div>
+                    <span class="text-indigo-400 text-xs font-bold uppercase tracking-wider">Tema 1: Habilidades Directivas</span>
+                    <h2 class="text-3xl font-bold mt-1">Test: ¿Qué estilo de liderazgo ejerces bajo presión?</h2>
+                </div>
+                
+                <div class="bg-slate-800/40 p-6 rounded-xl border border-slate-700/60 space-y-4 max-w-3xl mx-auto w-full">
+                    <p class="text-sm text-slate-300 mb-2">Responde de forma sincera de 1 (Nunca) a 5 (Siempre):</p>
+                    
+                    <div class="space-y-4 text-sm">
+                        <div class="flex flex-col md:flex-row md:items-center justify-between gap-2 pb-2 border-b border-slate-700/50">
+                            <span>1. Si el equipo comete un error grave, busco responsables antes que la solución.</span>
+                            <div class="flex gap-2">
+                                <label class="cursor-pointer"><input type="radio" name="t1q1" value="1" class="hidden peer"><span class="px-3 py-1 bg-slate-700 peer-checked:bg-indigo-600 rounded text-xs block">1</span></label>
+                                <label class="cursor-pointer"><input type="radio" name="t1q1" value="2" class="hidden peer"><span class="px-3 py-1 bg-slate-700 peer-checked:bg-indigo-600 rounded text-xs block">2</span></label>
+                                <label class="cursor-pointer"><input type="radio" name="t1q1" value="3" class="hidden peer"><span class="px-3 py-1 bg-slate-700 peer-checked:bg-indigo-600 rounded text-xs block">3</span></label>
+                                <label class="cursor-pointer"><input type="radio" name="t1q1" value="4" class="hidden peer"><span class="px-3 py-1 bg-slate-700 peer-checked:bg-indigo-600 rounded text-xs block">4</span></label>
+                                <label class="cursor-pointer"><input type="radio" name="t1q1" value="5" class="hidden peer"><span class="px-3 py-1 bg-slate-700 peer-checked:bg-indigo-600 rounded text-xs block">5</span></label>
+                            </div>
+                        </div>
+
+                        <div class="flex flex-col md:flex-row md:items-center justify-between gap-2 pb-2 border-b border-slate-700/50">
+                            <span>2. Evito delegar tareas estratégicas porque tardo menos haciéndolas yo.</span>
+                            <div class="flex gap-2">
+                                <label class="cursor-pointer"><input type="radio" name="t1q2" value="1" class="hidden peer"><span class="px-3 py-1 bg-slate-700 peer-checked:bg-indigo-600 rounded text-xs block">1</span></label>
+                                <label class="cursor-pointer"><input type="radio" name="t1q2" value="2" class="hidden peer"><span class="px-3 py-1 bg-slate-700 peer-checked:bg-indigo-600 rounded text-xs block">2</span></label>
+                                <label class="cursor-pointer"><input type="radio" name="t1q2" value="3" class="hidden peer"><span class="px-3 py-1 bg-slate-700 peer-checked:bg-indigo-600 rounded text-xs block">3</span></label>
+                                <label class="cursor-pointer"><input type="radio" name="t1q2" value="4" class="hidden peer"><span class="px-3 py-1 bg-slate-700 peer-checked:bg-indigo-600 rounded text-xs block">4</span></label>
+                                <label class="cursor-pointer"><input type="radio" name="t1q2" value="5" class="hidden peer"><span class="px-3 py-1 bg-slate-700 peer-checked:bg-indigo-600 rounded text-xs block">5</span></label>
+                            </div>
+                        </div>
+
+                        <div class="flex flex-col md:flex-row md:items-center justify-between gap-2 pb-2">
+                            <span>3. En momentos de urgencia máxima, doy órdenes sin margen a debatir.</span>
+                            <div class="flex gap-2">
+                                <label class="cursor-pointer"><input type="radio" name="t1q3" value="1" class="hidden peer"><span class="px-3 py-1 bg-slate-700 peer-checked:bg-indigo-600 rounded text-xs block">1</span></label>
+                                <label class="cursor-pointer"><input type="radio" name="t1q3" value="2" class="hidden peer"><span class="px-3 py-1 bg-slate-700 peer-checked:bg-indigo-600 rounded text-xs block">2</span></label>
+                                <label class="cursor-pointer"><input type="radio" name="t1q3" value="3" class="hidden peer"><span class="px-3 py-1 bg-slate-700 peer-checked:bg-indigo-600 rounded text-xs block">3</span></label>
+                                <label class="cursor-pointer"><input type="radio" name="t1q3" value="4" class="hidden peer"><span class="px-3 py-1 bg-slate-700 peer-checked:bg-indigo-600 rounded text-xs block">4</span></label>
+                                <label class="cursor-pointer"><input type="radio" name="t1q3" value="5" class="hidden peer"><span class="px-3 py-1 bg-slate-700 peer-checked:bg-indigo-600 rounded text-xs block">5</span></label>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="pt-2 text-center">
+                        <button onclick="calculateTest1()" class="px-6 py-2 bg-indigo-600 hover:bg-indigo-500 rounded-xl text-xs font-semibold">Calcular Resultado</button>
+                    </div>
+
+                    <div id="test1-result" class="hidden mt-4 p-4 bg-indigo-950/40 rounded-lg text-xs text-indigo-300 border border-indigo-500/20"></div>
+                </div>
+            </div>
+
+            <!-- SLIDE 5: TEMA 1 - ACTIVIDAD EN EL AULA -->
+            <div id="slide-5" class="slide flex-col justify-start space-y-6">
+                <div>
+                    <span class="text-indigo-400 text-xs font-bold uppercase tracking-wider">Tema 1: Habilidades Directivas</span>
+                    <h2 class="text-3xl font-bold mt-1">Actividad: El Simulador de Comité de Dirección de RRHH</h2>
+                </div>
+                
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-6 pt-4">
+                    <div class="bg-slate-800/30 p-5 rounded-xl border border-slate-700/50">
+                        <div class="text-emerald-400 font-bold text-lg mb-2">1. Fase de Roles</div>
+                        <p class="text-sm text-slate-300">
+                            Grupos de 4 alumnos. Roles de alta dirección para decidir un cambio organizativo severo:
+                        </p>
+                        <ul class="text-xs text-slate-400 mt-2 list-disc list-inside space-y-1">
+                            <li>Director de Gestión de Personas</li>
+                            <li>Director de Operaciones</li>
+                            <li>Director Financiero</li>
+                            <li>Director General</li>
+                        </ul>
+                    </div>
+                    <div class="bg-slate-800/30 p-5 rounded-xl border border-slate-700/50">
+                        <div class="text-amber-400 font-bold text-lg mb-2">2. El Desafío de Gestión</div>
+                        <p class="text-sm text-slate-300">
+                            Se entrega un imprevisto legal: 
+                            <span class="block mt-2 text-xs italic text-slate-400">"La nueva legislación laboral obliga a registrar de forma estricta la jornada laboral híbrida, reduciendo las horas extraordinarias a coste cero."</span>
+                        </p>
+                    </div>
+                    <div class="bg-slate-800/30 p-5 rounded-xl border border-slate-700/50">
+                        <div class="text-rose-400 font-bold text-lg mb-2">3. Entregable Crítico</div>
+                        <p class="text-sm text-slate-300">
+                            Tienen 20 minutos para redactar un acta de consenso que evite el descontento de la plantilla, definiendo el nivel de delegación que el Director General otorga a RRHH.
+                        </p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- SLIDE 6: TEMA 2 - CASO PRÁCTICO -->
+            <div id="slide-6" class="slide flex-col justify-start space-y-6">
+                <div class="flex justify-between items-start">
+                    <div>
+                        <span class="text-emerald-400 text-xs font-bold uppercase tracking-wider">Tema 2: Técnicas de Motivación</span>
+                        <h2 class="text-3xl font-bold mt-1">Caso Práctico: Desmotivación en Perfiles Técnicos Clave</h2>
+                    </div>
+                    <span class="px-3 py-1 bg-emerald-500/10 text-emerald-400 rounded-lg text-xs font-mono">Reto RRHH</span>
+                </div>
+                
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-6 items-center">
+                    <div class="bg-slate-800/40 p-6 rounded-xl border border-slate-700/60 space-y-4">
+                        <h3 class="font-bold text-lg text-emerald-300">Falta de Propósito Organizativo</h3>
+                        <p class="text-sm text-slate-300 leading-relaxed">
+                            Un arquitecto principal de sistemas, responsable de la estabilidad tecnológica de la empresa y con una retribución económica excelente, presenta claros signos de <strong>burnout</strong>.
+                        </p>
+                        <p class="text-sm text-slate-300 leading-relaxed">
+                            En las evaluaciones de desempeño reporta que su trabajo "no tiene impacto" e ignora la burocracia corporativa. Muestra desinterés y ha recibido ofertas atractivas de otras compañías tecnológicas.
+                        </p>
+                    </div>
+                    <div class="space-y-4">
+                        <h3 class="font-bold text-lg text-white">Retos del Alumno (Gestor de Personas)</h3>
+                        <div class="flex gap-3 items-start">
+                            <div class="w-6 h-6 rounded-full bg-emerald-500/20 text-emerald-400 flex items-center justify-center font-bold text-xs shrink-0 mt-0.5">1</div>
+                            <p class="text-sm text-slate-300">¿Qué alternativas de <strong>Salario Emocional</strong> y motivación intrínseca aplicarías para retenerle de forma inmediata?</p>
+                        </div>
+                        <div class="flex gap-3 items-start">
+                            <div class="w-6 h-6 rounded-full bg-emerald-500/20 text-emerald-400 flex items-center justify-center font-bold text-xs shrink-0 mt-0.5">2</div>
+                            <p class="text-sm text-slate-300">Aplica la teoría de Herzberg identificando cuáles son los factores higiénicos y cuáles los motivadores en este caso.</p>
+                        </div>
+                        <div class="flex gap-3 items-start">
+                            <div class="w-6 h-6 rounded-full bg-emerald-500/20 text-emerald-400 flex items-center justify-center font-bold text-xs shrink-0 mt-0.5">3</div>
+                            <p class="text-sm text-slate-300">Diseña una estructura para realizar un plan de desarrollo profesional centrado en su autoconocimiento.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- SLIDE 7: TEMA 2 - TEST INTERACTIVO -->
+            <div id="slide-7" class="slide flex-col justify-start space-y-6">
+                <div>
+                    <span class="text-emerald-400 text-xs font-bold uppercase tracking-wider">Tema 2: Técnicas de Motivación</span>
+                    <h2 class="text-3xl font-bold mt-1">Test: ¿Cuál es tu Impulsor de Motivación Dominante?</h2>
+                </div>
+                
+                <div class="bg-slate-800/40 p-6 rounded-xl border border-slate-700/60 space-y-5 max-w-3xl mx-auto w-full">
+                    <p class="text-sm text-slate-300 mb-2">Selecciona la frase con la que te sientes más identificado en tu espacio laboral:</p>
+                    
+                    <div class="space-y-3 text-sm">
+                        <label class="flex items-start gap-3 p-3 bg-slate-800/60 rounded-xl cursor-pointer hover:bg-slate-700 transition-colors border border-slate-700/50">
+                            <input type="radio" name="t2q" value="logro" class="mt-1 accent-emerald-500">
+                            <div>
+                                <strong class="text-emerald-300">Opción A</strong>
+                                <p class="text-xs text-slate-400">Me impulsa superar metas exigentes y batir mis propios registros de eficiencia y entrega.</p>
+                            </div>
+                        </label>
+
+                        <label class="flex items-start gap-3 p-3 bg-slate-800/60 rounded-xl cursor-pointer hover:bg-slate-700 transition-colors border border-slate-700/50">
+                            <input type="radio" name="t2q" value="poder" class="mt-1 accent-emerald-500">
+                            <div>
+                                <strong class="text-emerald-300">Opción B</strong>
+                                <p class="text-xs text-slate-400">Me motiva influir activamente en la toma de decisiones, liderar proyectos estratégicos y ganar prestigio.</p>
+                            </div>
+                        </label>
+
+                        <label class="flex items-start gap-3 p-3 bg-slate-800/60 rounded-xl cursor-pointer hover:bg-slate-700 transition-colors border border-slate-700/50">
+                            <input type="radio" name="t2q" value="afiliacion" class="mt-1 accent-emerald-500">
+                            <div>
+                                <strong class="text-emerald-300">Opción C</strong>
+                                <p class="text-xs text-slate-400">Para mí es prioritario trabajar en ambientes de excelente clima laboral, cohesión grupal y soporte humano.</p>
+                            </div>
+                        </label>
+                    </div>
+
+                    <div class="pt-2 text-center">
+                        <button onclick="calculateTest2()" class="px-6 py-2 bg-emerald-600 hover:bg-emerald-500 rounded-xl text-xs font-semibold text-white">Verificar Tipo</button>
+                    </div>
+
+                    <div id="test2-result" class="hidden mt-4 p-4 bg-emerald-950/40 rounded-lg text-xs text-emerald-300 border border-emerald-500/20"></div>
+                </div>
+            </div>
+
+            <!-- SLIDE 8: TEMA 2 - ACTIVIDAD -->
+            <div id="slide-8" class="slide flex-col justify-start space-y-6">
+                <div>
+                    <span class="text-emerald-400 text-xs font-bold uppercase tracking-wider">Tema 2: Técnicas de Motivación</span>
+                    <h2 class="text-3xl font-bold mt-1">Actividad: Plan de Onboarding y Fidelización Sin Presupuesto</h2>
+                </div>
+                
+                <div class="bg-slate-800/40 p-6 rounded-xl border border-slate-700/60 space-y-6">
+                    <div class="border-l-4 border-emerald-500 pl-4">
+                        <h3 class="font-bold text-lg">La Misión</h3>
+                        <p class="text-sm text-slate-300">
+                            Diseñar un sistema de motivación no monetaria centrado en la integración y bienestar laboral para un equipo de atención telefónica con altos niveles de rotación y baja moral.
+                        </p>
+                    </div>
+
+                    <div class="grid grid-cols-1 md:grid-cols-3 gap-4 text-xs">
+                        <div class="bg-slate-800 p-4 rounded-lg">
+                            <span class="font-bold text-emerald-400">Autonomía Horaria</span>
+                            <p class="mt-1 text-slate-400">¿Cómo flexibilizar turnos para conciliar la vida personal y profesional sin mermar el rendimiento operativo?</p>
+                        </div>
+                        <div class="bg-slate-800 p-4 rounded-lg">
+                            <span class="font-bold text-emerald-400">Progreso Laboral</span>
+                            <p class="mt-1 text-slate-400">Crea un sistema de mentores cruzados donde compartan mejores prácticas y ganen visibilidad interna.</p>
+                        </div>
+                        <div class="bg-slate-800 p-4 rounded-lg">
+                            <span class="font-bold text-emerald-400">Cultura de Reconocimiento</span>
+                            <p class="mt-1 text-slate-400">Establece dinámicas de agradecimiento público mensuales para valorar las contribuciones clave del equipo.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- SLIDE 9: TEMA 3 - CASO PRÁCTICO -->
+            <div id="slide-9" class="slide flex-col justify-start space-y-6">
+                <div class="flex justify-between items-start">
+                    <div>
+                        <span class="text-rose-400 text-xs font-bold uppercase tracking-wider">Tema 3: Resolución de Conflictos</span>
+                        <h2 class="text-3xl font-bold mt-1">Caso: Conflicto entre Mánagers de Línea y RRHH</h2>
+                    </div>
+                    <span class="px-3 py-1 bg-rose-500/10 text-rose-400 rounded-lg text-xs font-mono">Reto RRHH</span>
+                </div>
+                
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-6 items-center">
+                    <div class="bg-slate-800/40 p-6 rounded-xl border border-slate-700/60 space-y-4">
+                        <h3 class="font-bold text-lg text-rose-300">Fricción de Procesos</h3>
+                        <p class="text-sm text-slate-300 leading-relaxed">
+                            Los jefes de producción de una fábrica se saltan de forma sistemática los protocolos de selección para contratar operarios temporales "a dedo", argumentando que necesitan cubrir las vacantes de inmediato.
+                        </p>
+                        <p class="text-sm text-slate-300 leading-relaxed">
+                            RRHH frena estas altas por incumplir leyes de igualdad, diversidad y políticas internas de compliance. Los jefes de línea acusan a RRHH de "bloquear la producción y asfixiar el negocio".
+                        </p>
+                    </div>
+                    <div class="space-y-4">
+                        <h3 class="font-bold text-lg text-white">Retos del Alumno (Mediador de RRHH)</h3>
+                        <div class="flex gap-3 items-start">
+                            <div class="w-6 h-6 rounded-full bg-rose-500/20 text-rose-400 flex items-center justify-center font-bold text-xs shrink-0 mt-0.5">1</div>
+                            <p class="text-sm text-slate-300">Determina el tipo de conflicto (¿tarea, proceso o relación?) y fundamenta la respuesta.</p>
+                        </div>
+                        <div class="flex gap-3 items-start">
+                            <div class="w-6 h-6 rounded-full bg-rose-500/20 text-rose-400 flex items-center justify-center font-bold text-xs shrink-0 mt-0.5">2</div>
+                            <p class="text-sm text-slate-300">Usa el modelo Thomas-Kilmann para seleccionar el estilo idóneo para guiar la resolución.</p>
+                        </div>
+                        <div class="flex gap-3 items-start">
+                            <div class="w-6 h-6 rounded-full bg-rose-500/20 text-rose-400 flex items-center justify-center font-bold text-xs shrink-0 mt-0.5">3</div>
+                            <p class="text-sm text-slate-300">Plantea un acuerdo organizativo que dé agilidad a la contratación sin comprometer la legalidad.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- SLIDE 10: TEMA 3 - TEST INTERACTIVO -->
+            <div id="slide-10" class="slide flex-col justify-start space-y-6">
+                <div>
+                    <span class="text-rose-400 text-xs font-bold uppercase tracking-wider">Tema 3: Resolución de Conflictos</span>
+                    <h2 class="text-3xl font-bold mt-1">Test: ¿Cómo reaccionas ante la confrontación directa?</h2>
+                </div>
+                
+                <div class="bg-slate-800/40 p-6 rounded-xl border border-slate-700/60 space-y-4 max-w-3xl mx-auto w-full">
+                    <p class="text-sm text-slate-300 mb-2">Evalúa tu nivel de acuerdo del 1 (Total Desacuerdo) al 5 (Total Acuerdo):</p>
+                    
+                    <div class="space-y-4 text-sm">
+                        <div class="flex flex-col md:flex-row md:items-center justify-between gap-2 pb-2 border-b border-slate-700/50">
+                            <span>1. Si un mánager de otra área me desautoriza en público, guardo silencio y le confronto a solas después.</span>
+                            <div class="flex gap-2">
+                                <label class="cursor-pointer"><input type="radio" name="t3q1" value="1" class="hidden peer"><span class="px-3 py-1 bg-slate-700 peer-checked:bg-rose-600 rounded text-xs block">1</span></label>
+                                <label class="cursor-pointer"><input type="radio" name="t3q1" value="2" class="hidden peer"><span class="px-3 py-1 bg-slate-700 peer-checked:bg-rose-600 rounded text-xs block">2</span></label>
+                                <label class="cursor-pointer"><input type="radio" name="t3q1" value="3" class="hidden peer"><span class="px-3 py-1 bg-slate-700 peer-checked:bg-rose-600 rounded text-xs block">3</span></label>
+                                <label class="cursor-pointer"><input type="radio" name="t3q1" value="4" class="hidden peer"><span class="px-3 py-1 bg-slate-700 peer-checked:bg-rose-600 rounded text-xs block">4</span></label>
+                                <label class="cursor-pointer"><input type="radio" name="t3q1" value="5" class="hidden peer"><span class="px-3 py-1 bg-slate-700 peer-checked:bg-rose-600 rounded text-xs block">5</span></label>
+                            </div>
+                        </div>
+
+                        <div class="flex flex-col md:flex-row md:items-center justify-between gap-2 pb-2 border-b border-slate-700/50">
+                            <span>2. Defiendo mis posturas profesionales y las políticas normativas de RRHH aunque afecten el ambiente.</span>
+                            <div class="flex gap-2">
+                                <label class="cursor-pointer"><input type="radio" name="t3q2" value="1" class="hidden peer"><span class="px-3 py-1 bg-slate-700 peer-checked:bg-rose-600 rounded text-xs block">1</span></label>
+                                <label class="cursor-pointer"><input type="radio" name="t3q2" value="2" class="hidden peer"><span class="px-3 py-1 bg-slate-700 peer-checked:bg-rose-600 rounded text-xs block">2</span></label>
+                                <label class="cursor-pointer"><input type="radio" name="t3q2" value="3" class="hidden peer"><span class="px-3 py-1 bg-slate-700 peer-checked:bg-rose-600 rounded text-xs block">3</span></label>
+                                <label class="cursor-pointer"><input type="radio" name="t3q2" value="4" class="hidden peer"><span class="px-3 py-1 bg-slate-700 peer-checked:bg-rose-600 rounded text-xs block">4</span></label>
+                                <label class="cursor-pointer"><input type="radio" name="t3q2" value="5" class="hidden peer"><span class="px-3 py-1 bg-slate-700 peer-checked:bg-rose-600 rounded text-xs block">5</span></label>
+                            </div>
+                        </div>
+
+                        <div class="flex flex-col md:flex-row md:items-center justify-between gap-2">
+                            <span>3. Suelo ceder en mis demandas si intuyo que la otra persona se está tomando el conflicto como algo personal.</span>
+                            <div class="flex gap-2">
+                                <label class="cursor-pointer"><input type="radio" name="t3q3" value="1" class="hidden peer"><span class="px-3 py-1 bg-slate-700 peer-checked:bg-rose-600 rounded text-xs block">1</span></label>
+                                <label class="cursor-pointer"><input type="radio" name="t3q3" value="2" class="hidden peer"><span class="px-3 py-1 bg-slate-700 peer-checked:bg-rose-600 rounded text-xs block">2</span></label>
+                                <label class="cursor-pointer"><input type="radio" name="t3q3" value="3" class="hidden peer"><span class="px-3 py-1 bg-slate-700 peer-checked:bg-rose-600 rounded text-xs block">3</span></label>
+                                <label class="cursor-pointer"><input type="radio" name="t3q3" value="4" class="hidden peer"><span class="px-3 py-1 bg-slate-700 peer-checked:bg-rose-600 rounded text-xs block">4</span></label>
+                                <label class="cursor-pointer"><input type="radio" name="t3q3" value="5" class="hidden peer"><span class="px-3 py-1 bg-slate-700 peer-checked:bg-rose-600 rounded text-xs block">5</span></label>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="pt-2 text-center">
+                        <button onclick="calculateTest3()" class="px-6 py-2 bg-rose-600 hover:bg-rose-500 rounded-xl text-xs font-semibold">Valorar Respuesta</button>
+                    </div>
+
+                    <div id="test3-result" class="hidden mt-4 p-4 bg-rose-950/40 rounded-lg text-xs text-rose-300 border border-rose-500/20"></div>
+                </div>
+            </div>
+
+            <!-- SLIDE 11: TEMA 3 - ACTIVIDAD -->
+            <div id="slide-11" class="slide flex-col justify-start space-y-6">
+                <div>
+                    <span class="text-rose-400 text-xs font-bold uppercase tracking-wider">Tema 3: Resolución de Conflictos</span>
+                    <h2 class="text-3xl font-bold mt-1">Actividad de Aula: La Mesa de Mediación Operaciones vs. RRHH</h2>
+                </div>
+                
+                <div class="bg-slate-800/40 p-6 rounded-xl border border-slate-700/60 space-y-4">
+                    <p class="text-sm text-slate-300">
+                        Dividir la clase en grupos de 3 estudiantes para ejecutar una sesión de simulación del conflicto Jefes de Producción vs Departamento de Personas:
+                    </p>
+
+                    <div class="grid grid-cols-1 md:grid-cols-3 gap-4 pt-2">
+                        <div class="border border-slate-700 bg-slate-800/80 p-4 rounded-xl">
+                            <span class="text-rose-400 font-bold block">Rol 1: Jefe de Producción</span>
+                            <p class="text-xs text-slate-400 mt-1">Sostiene que las paradas en las máquinas por falta de operarios cuestan miles de euros al día.</p>
+                        </div>
+                        <div class="border border-slate-700 bg-slate-800/80 p-4 rounded-xl">
+                            <span class="text-rose-400 font-bold block">Rol 2: Técnico de Selección de RRHH</span>
+                            <p class="text-xs text-slate-400 mt-1">Defiende que las prisas violan el convenio colectivo y exponen a la empresa a multas administrativas.</p>
+                        </div>
+                        <div class="border border-slate-700 bg-slate-800/80 p-4 rounded-xl">
+                            <span class="text-indigo-400 font-bold block">Rol 3: Mediador Externo</span>
+                            <p class="text-xs text-slate-400 mt-1">Debe guiar la sesión de manera objetiva hacia un acuerdo de colaboración mutua (Ganar-Ganar).</p>
+                        </div>
+                    </div>
+
+                    <div class="text-xs bg-slate-900 p-3 rounded-lg border border-slate-800 text-slate-400 italic">
+                        <strong>Entregable:</strong> Acta de mediación con una propuesta de selección exprés digitalizada y pre-aprobada para emergencias de fábrica.
+                    </div>
+                </div>
+            </div>
+
+            <!-- SLIDE 12: TEMA 4 - CASO PRÁCTICO -->
+            <div id="slide-12" class="slide flex-col justify-start space-y-6">
+                <div class="flex justify-between items-start">
+                    <div>
+                        <span class="text-amber-400 text-xs font-bold uppercase tracking-wider">Tema 4: Técnicas de Negociación</span>
+                        <h2 class="text-3xl font-bold mt-1">Caso: Negociación del Convenio Interno de Teletrabajo</h2>
+                    </div>
+                    <span class="px-3 py-1 bg-amber-500/10 text-amber-400 rounded-lg text-xs font-mono">Reto RRHH</span>
+                </div>
+                
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-6 items-center">
+                    <div class="bg-slate-800/40 p-6 rounded-xl border border-slate-700/60 space-y-4">
+                        <h3 class="font-bold text-lg text-amber-300">Conflicto en la Mesa Social</h3>
+                        <p class="text-sm text-slate-300 leading-relaxed">
+                            La Dirección General quiere limitar el teletrabajo a 1 día a la semana para fomentar la cultura empresarial. El Comité de Empresa (sindicatos) exige un mínimo de 3 días y ayudas económicas para luz e internet.
+                        </p>
+                        <p class="text-sm text-slate-300 leading-relaxed">
+                            Si no se firma un acuerdo antes de final de mes, el sindicato amenaza con huelgas parciales, afectando la estabilidad del negocio y el clima organizativo.
+                        </p>
+                    </div>
+                    <div class="space-y-4">
+                        <h3 class="font-bold text-lg text-white">Retos del Alumno (Negociador de RRHH)</h3>
+                        <div class="flex gap-3 items-start">
+                            <div class="w-6 h-6 rounded-full bg-amber-500/20 text-amber-400 flex items-center justify-center font-bold text-xs shrink-0 mt-0.5">1</div>
+                            <p class="text-sm text-slate-300">Determina el <strong>MAAN / BATNA</strong> para la Dirección de la Empresa y para el Comité de Empresa.</p>
+                        </div>
+                        <div class="flex gap-3 items-start">
+                            <div class="w-6 h-6 rounded-full bg-amber-500/20 text-amber-400 flex items-center justify-center font-bold text-xs shrink-0 mt-0.5">2</div>
+                            <p class="text-sm text-slate-300">Introduce "monedas de cambio" alternativas (flexibilidad en horario de entrada, bolsas de horas para conciliación) para abrir la negociación distributiva.</p>
+                        </div>
+                        <div class="flex gap-3 items-start">
+                            <div class="w-6 h-6 rounded-full bg-amber-500/20 text-amber-400 flex items-center justify-center font-bold text-xs shrink-0 mt-0.5">3</div>
+                            <p class="text-sm text-slate-300">Establece la Zona de Posible Acuerdo (ZOPA).</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- SLIDE 13: TEMA 4 - TEST INTERACTIVO -->
+            <div id="slide-13" class="slide flex-col justify-start space-y-6">
+                <div>
+                    <span class="text-amber-400 text-xs font-bold uppercase tracking-wider">Tema 4: Técnicas de Negociación</span>
+                    <h2 class="text-3xl font-bold mt-1">Test: ¿Cuál es tu Estilo de Negociación en el Ámbito Social?</h2>
+                </div>
+                
+                <div class="bg-slate-800/40 p-6 rounded-xl border border-slate-700/60 space-y-5 max-w-3xl mx-auto w-full">
+                    <p class="text-sm text-slate-300 mb-2">¿Cómo actúas cuando negocias acuerdos con el Comité de Empresa?</p>
+                    
+                    <div class="space-y-3 text-sm">
+                        <label class="flex items-start gap-3 p-3 bg-slate-800/60 rounded-xl cursor-pointer hover:bg-slate-700 transition-colors border border-slate-700/50">
+                            <input type="radio" name="t4q" value="competitivo" class="mt-1 accent-amber-500">
+                            <div>
+                                <strong class="text-amber-300">Opción A</strong>
+                                <p class="text-xs text-slate-400">Busco defender la rentabilidad económica inmediata del negocio de forma estricta. Ceder es mostrar debilidad.</p>
+                            </div>
+                        </label>
+
+                        <label class="flex items-start gap-3 p-3 bg-slate-800/60 rounded-xl cursor-pointer hover:bg-slate-700 transition-colors border border-slate-700/50">
+                            <input type="radio" name="t4q" value="colaborativo" class="mt-1 accent-amber-500">
+                            <div>
+                                <strong class="text-amber-300">Opción B</strong>
+                                <p class="text-xs text-slate-400">Exploro los intereses reales detrás de las peticiones de conciliación y busco puntos de equilibrio y productividad.</p>
+                            </div>
+                        </label>
+
+                        <label class="flex items-start gap-3 p-3 bg-slate-800/60 rounded-xl cursor-pointer hover:bg-slate-700 transition-colors border border-slate-700/50">
+                            <input type="radio" name="t4q" value="complaciente" class="mt-1 accent-amber-500">
+                            <div>
+                                <strong class="text-amber-300">Opción C</strong>
+                                <p class="text-xs text-slate-400">Suelo ceder rápido a las demandas sindicales con tal de asegurar la paz social y evitar disputas prolongadas.</p>
+                            </div>
+                        </label>
+                    </div>
+
+                    <div class="pt-2 text-center">
+                        <button onclick="calculateTest4()" class="px-6 py-2 bg-amber-600 hover:bg-amber-500 rounded-xl text-xs font-semibold text-white">Analizar Perfil</button>
+                    </div>
+
+                    <div id="test4-result" class="hidden mt-4 p-4 bg-amber-950/40 rounded-lg text-xs text-amber-300 border border-amber-500/20"></div>
+                </div>
+            </div>
+
+            <!-- SLIDE 14: TEMA 4 - ACTIVIDAD -->
+            <div id="slide-14" class="slide flex-col justify-start space-y-6">
+                <div>
+                    <span class="text-amber-400 text-xs font-bold uppercase tracking-wider">Tema 4: Técnicas de Negociación</span>
+                    <h2 class="text-3xl font-bold mt-1">Actividad: Simulación Social (Mesa de Convenio)</h2>
+                </div>
+                
+                <div class="bg-slate-800/40 p-6 rounded-xl border border-slate-700/60 space-y-4">
+                    <p class="text-sm text-slate-300">
+                        Ejercicio en parejas que simula la negociación de conciliación del convenio colectivo:
+                    </p>
+
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                        <div class="bg-slate-800 p-4 rounded-xl border border-slate-750">
+                            <span class="text-amber-400 font-bold text-sm block">Comisión Representante (Sindicato)</span>
+                            <p class="text-xs text-slate-400 mt-2">
+                                Exigen 3 días de teletrabajo a la semana, pago de costes de oficina y flexibilidad total de horario para el cuidado de familiares.
+                            </p>
+                        </div>
+                        <div class="bg-slate-800 p-4 rounded-xl border border-slate-750">
+                            <span class="text-amber-400 font-bold text-sm block">Dirección de RRHH</span>
+                            <p class="text-xs text-slate-400 mt-2">
+                                Presupuesto límite de 20€/mes por empleado para ayuda de gastos. Exigen presencialidad obligatoria en días clave de reuniones de planificación.
+                            </p>
+                        </div>
+                    </div>
+
+                    <div class="bg-slate-900 p-4 rounded-xl text-xs text-slate-400 border border-slate-800">
+                        <strong>Objetivo del ejercicio:</strong> Encontrar un acuerdo equilibrado en la ZOPA (por ejemplo, compensaciones en formación, días de libre disposición o teletrabajo condicionado a productividad).
+                    </div>
+                </div>
+            </div>
+
+            <!-- SLIDE 15: TEMA 5 - CASO PRÁCTICO -->
+            <div id="slide-15" class="slide flex-col justify-start space-y-6">
+                <div class="flex justify-between items-start">
+                    <div>
+                        <span class="text-purple-400 text-xs font-bold uppercase tracking-wider">Tema 5: Autogestión Emocional</span>
+                        <h2 class="text-3xl font-bold mt-1">Caso: Secuestro Amigdalar en una Notificación de Despido</h2>
+                    </div>
+                    <span class="px-3 py-1 bg-purple-500/10 text-purple-400 rounded-lg text-xs font-mono">Reto RRHH</span>
+                </div>
+                
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-6 items-center">
+                    <div class="bg-slate-800/40 p-6 rounded-xl border border-slate-700/60 space-y-4">
+                        <h3 class="font-bold text-lg text-purple-300">Crisis en la Reunión</h3>
+                        <p class="text-sm text-slate-300 leading-relaxed">
+                            Un especialista de RRHH comunica un despido disciplinario por bajo rendimiento. El empleado reacciona de forma sumamente hostil y agresiva, elevando el tono de voz y acusándole de persecución personal.
+                        </p>
+                        <p class="text-sm text-slate-300 leading-relaxed">
+                            El técnico nota taquicardia inmediata, calor en la cara y sequedad bucal. Su impulso natural es responder a los gritos, justificar airadamente la postura legal o bloquearse.
+                        </p>
+                    </div>
+                    <div class="space-y-4">
+                        <h3 class="font-bold text-lg text-white">Retos del Alumno (Autocontrol de RRHH)</h3>
+                        <div class="flex gap-3 items-start">
+                            <div class="w-6 h-6 rounded-full bg-purple-500/20 text-purple-400 flex items-center justify-center font-bold text-xs shrink-0 mt-0.5">1</div>
+                            <p class="text-sm text-slate-300">Explica fisiológicamente qué es el <strong>secuestro amigdalar</strong> aplicado a esta interacción hostil.</p>
+                        </div>
+                        <div class="flex gap-3 items-start">
+                            <div class="w-6 h-6 rounded-full bg-purple-500/20 text-purple-400 flex items-center justify-center font-bold text-xs shrink-0 mt-0.5">2</div>
+                            <p class="text-sm text-slate-300">Plantea 3 recursos de autorregulación emocional aplicables por el mánager en los primeros 10 segundos.</p>
+                        </div>
+                        <div class="flex gap-3 items-start">
+                            <div class="w-6 h-6 rounded-full bg-purple-500/20 text-purple-400 flex items-center justify-center font-bold text-xs shrink-0 mt-0.5">3</div>
+                            <p class="text-sm text-slate-300">Redacta una contestación asertiva basada en la contención emocional profesional.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- SLIDE 16: TEMA 5 - TEST INTERACTIVO -->
+            <div id="slide-16" class="slide flex-col justify-start space-y-6">
+                <div>
+                    <span class="text-purple-400 text-xs font-bold uppercase tracking-wider">Tema 5: Autogestión Emocional</span>
+                    <h2 class="text-3xl font-bold mt-1">Test: ¿Cómo evalúas tu Nivel de Conciencia Emocional?</h2>
+                </div>
+                
+                <div class="bg-slate-800/40 p-6 rounded-xl border border-slate-700/60 space-y-4 max-w-3xl mx-auto w-full">
+                    <p class="text-sm text-slate-300 mb-2">Responde de forma sincera de 1 (Nunca) a 5 (Siempre):</p>
+                    
+                    <div class="space-y-4 text-sm">
+                        <div class="flex flex-col md:flex-row md:items-center justify-between gap-2 pb-2 border-b border-slate-700/50">
+                            <span>1. Identifico la emoción exacta (ira, decepción, miedo) en el instante en que aparece.</span>
+                            <div class="flex gap-2">
+                                <label class="cursor-pointer"><input type="radio" name="t5q1" value="1" class="hidden peer"><span class="px-3 py-1 bg-slate-700 peer-checked:bg-purple-600 rounded text-xs block">1</span></label>
+                                <label class="cursor-pointer"><input type="radio" name="t5q1" value="2" class="hidden peer"><span class="px-3 py-1 bg-slate-700 peer-checked:bg-purple-600 rounded text-xs block">2</span></label>
+                                <label class="cursor-pointer"><input type="radio" name="t5q1" value="3" class="hidden peer"><span class="px-3 py-1 bg-slate-700 peer-checked:bg-purple-600 rounded text-xs block">3</span></label>
+                                <label class="cursor-pointer"><input type="radio" name="t5q1" value="4" class="hidden peer"><span class="px-3 py-1 bg-slate-700 peer-checked:bg-purple-600 rounded text-xs block">4</span></label>
+                                <label class="cursor-pointer"><input type="radio" name="t5q1" value="5" class="hidden peer"><span class="px-3 py-1 bg-slate-700 peer-checked:bg-purple-600 rounded text-xs block">5</span></label>
+                            </div>
+                        </div>
+
+                        <div class="flex flex-col md:flex-row md:items-center justify-between gap-2 pb-2 border-b border-slate-700/50">
+                            <span>2. Puedo frenar de forma consciente la necesidad de responder con un tono de voz agresivo.</span>
+                            <div class="flex gap-2">
+                                <label class="cursor-pointer"><input type="radio" name="t5q2" value="1" class="hidden peer"><span class="px-3 py-1 bg-slate-700 peer-checked:bg-purple-600 rounded text-xs block">1</span></label>
+                                <label class="cursor-pointer"><input type="radio" name="t5q2" value="2" class="hidden peer"><span class="px-3 py-1 bg-slate-700 peer-checked:bg-purple-600 rounded text-xs block">2</span></label>
+                                <label class="cursor-pointer"><input type="radio" name="t5q2" value="3" class="hidden peer"><span class="px-3 py-1 bg-slate-700 peer-checked:bg-purple-600 rounded text-xs block">3</span></label>
+                                <label class="cursor-pointer"><input type="radio" name="t5q2" value="4" class="hidden peer"><span class="px-3 py-1 bg-slate-700 peer-checked:bg-purple-600 rounded text-xs block">4</span></label>
+                                <label class="cursor-pointer"><input type="radio" name="t5q2" value="5" class="hidden peer"><span class="px-3 py-1 bg-slate-700 peer-checked:bg-purple-600 rounded text-xs block">5</span></label>
+                            </div>
+                        </div>
+
+                        <div class="flex flex-col md:flex-row md:items-center justify-between gap-2">
+                            <span>3. Conozco mis disparadores (triggers) personales exactos dentro del ambiente laboral.</span>
+                            <div class="flex gap-2">
+                                <label class="cursor-pointer"><input type="radio" name="t5q3" value="1" class="hidden peer"><span class="px-3 py-1 bg-slate-700 peer-checked:bg-purple-600 rounded text-xs block">1</span></label>
+                                <label class="cursor-pointer"><input type="radio" name="t5q3" value="2" class="hidden peer"><span class="px-3 py-1 bg-slate-700 peer-checked:bg-purple-600 rounded text-xs block">2</span></label>
+                                <label class="cursor-pointer"><input type="radio" name="t5q3" value="3" class="hidden peer"><span class="px-3 py-1 bg-slate-700 peer-checked:bg-purple-600 rounded text-xs block">3</span></label>
+                                <label class="cursor-pointer"><input type="radio" name="t5q3" value="4" class="hidden peer"><span class="px-3 py-1 bg-slate-700 peer-checked:bg-purple-600 rounded text-xs block">4</span></label>
+                                <label class="cursor-pointer"><input type="radio" name="t5q3" value="5" class="hidden peer"><span class="px-3 py-1 bg-slate-700 peer-checked:bg-purple-600 rounded text-xs block">5</span></label>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="pt-2 text-center">
+                        <button onclick="calculateTest5()" class="px-6 py-2 bg-purple-600 hover:bg-purple-500 rounded-xl text-xs font-semibold">Calcular Inteligencia Emocional</button>
+                    </div>
+
+                    <div id="test5-result" class="hidden mt-4 p-4 bg-purple-950/40 rounded-lg text-xs text-purple-300 border border-purple-500/20"></div>
+                </div>
+            </div>
+
+            <!-- SLIDE 17: TEMA 5 - ACTIVIDAD -->
+            <div id="slide-17" class="slide flex-col justify-start space-y-6">
+                <div>
+                    <span class="text-purple-400 text-xs font-bold uppercase tracking-wider">Tema 5: Autogestión Emocional</span>
+                    <h2 class="text-3xl font-bold mt-1">Actividad: El Diario de Disparadores (Triggers) Emocionales</h2>
+                </div>
+                
+                <div class="bg-slate-800/40 p-6 rounded-xl border border-slate-700/60 space-y-4">
+                    <p class="text-sm text-slate-300">
+                        Cada alumno registrará a lo largo de una semana tres situaciones de alta tensión emocional en su espacio de trabajo, rellenando el siguiente modelo:
+                    </p>
+
+                    <div class="grid grid-cols-1 md:grid-cols-3 gap-4 pt-2">
+                        <div class="bg-slate-800 p-4 rounded-xl text-xs border border-slate-750">
+                            <span class="font-bold text-purple-300 block mb-1">1. Hecho Objetivo</span>
+                            <p class="text-slate-400">¿Qué sucedió de forma concreta? Describe los hechos sin valoraciones subjetivas.</p>
+                        </div>
+                        <div class="bg-slate-800 p-4 rounded-xl text-xs border border-slate-750">
+                            <span class="font-bold text-purple-300 block mb-1">2. Diálogo Interno</span>
+                            <p class="text-slate-400">¿Qué pensamientos inmediatos tuviste tras la situación? Detecta distorsiones o interpretaciones erróneas.</p>
+                        </div>
+                        <div class="bg-slate-800 p-4 rounded-xl text-xs border border-slate-750">
+                            <span class="font-bold text-purple-300 block mb-1">3. Respuesta Regulada</span>
+                            <p class="text-slate-400">¿Qué mecanismos de relajación, replanteamiento o pausa aplicaste para recuperar el equilibrio?</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- SLIDE 18: CONCLUSION -->
+            <div id="slide-18" class="slide flex-col justify-center items-center text-center h-full my-auto space-y-6">
+                <div class="text-5xl">🏆</div>
+                <h2 class="text-3xl md:text-5xl font-extrabold text-white">¡Fin del Recorrido Práctico!</h2>
+                <p class="text-base md:text-lg text-slate-400 max-w-xl font-light">
+                    Las habilidades directivas en la gestión de personas no se asimilan de memoria; se maduran mediante el análisis de casos reales de la organización y el autodiagnóstico.
+                </p>
+                <div class="pt-4 flex gap-4">
+                    <button onclick="goToSlide(2)" class="px-6 py-2.5 bg-slate-800 hover:bg-slate-700 border border-slate-700 rounded-xl text-sm font-medium">Volver al Índice</button>
+                    <button onclick="goToSlide(1)" class="px-6 py-2.5 bg-indigo-600 hover:bg-indigo-500 rounded-xl text-sm font-medium">Volver a Empezar</button>
+                </div>
+            </div>
+
+            <!-- CONTROLS & PROGRESS BAR -->
+            <div class="mt-8 pt-4 border-t border-slate-800 flex justify-between items-center text-sm">
+                <button onclick="prevSlide()" class="px-4 py-2 bg-slate-800 hover:bg-slate-700 rounded-lg text-xs font-semibold tracking-wider transition-colors">ANTERIOR</button>
+                
+                <!-- PROGRESS BAR -->
+                <div class="hidden md:flex flex-grow mx-8 bg-slate-800 h-1.5 rounded-full overflow-hidden">
+                    <div id="progress-bar" class="bg-indigo-500 h-full transition-all duration-300" style="width: 5.8%"></div>
+                </div>
+
+                <button onclick="nextSlide()" class="px-4 py-2 bg-indigo-600 hover:bg-indigo-500 rounded-lg text-xs font-semibold tracking-wider transition-colors">SIGUIENTE</button>
+            </div>
+
+        </div>
+    </main>
+
+    <!-- FOOTER -->
+    <footer class="bg-slate-950 py-4 px-6 text-center text-xs text-slate-500 border-t border-slate-900">
+        © 2026 Programa Superior de Liderazgo y Gestión del Talento. Desarrollado de forma interactiva para soporte en aulas dinámicas.
+    </footer>
+
+    <!-- INTERACTIVE SCRIPTS -->
+    <script>
+        let currentSlide = 1;
+        const totalSlides = 18;
+
+        function updateSlideNumber() {
+            document.getElementById('slide-number-top').textContent = `${currentSlide} / ${totalSlides}`;
+            const percent = ((currentSlide - 1) / (totalSlides - 1)) * 100;
+            document.getElementById('progress-bar').style.width = `${percent}%`;
+        }
+
+        function goToSlide(number) {
+            if (number < 1 || number > totalSlides) return;
+            document.querySelector(`.slide.active`).classList.remove('active');
+            document.getElementById(`slide-${number}`).classList.add('active');
+            currentSlide = number;
+            updateSlideNumber();
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+
+        function nextSlide() {
+            if (currentSlide < totalSlides) {
+                goToSlide(currentSlide + 1);
+            }
+        }
+
+        function prevSlide() {
+            if (currentSlide > 1) {
+                goToSlide(currentSlide - 1);
+            }
+        }
+
+        // Keyboard arrow navigation
+        document.addEventListener('keydown', function(event) {
+            if (event.key === 'ArrowRight') {
+                nextSlide();
+            } else if (event.key === 'ArrowLeft') {
+                prevSlide();
+            }
+        });
+
+        // Swipe Gestures for Mobile
+        let touchstartX = 0;
+        let touchendX = 0;
+        
+        document.addEventListener('touchstart', e => {
+            touchstartX = e.changedTouches[0].screenX;
+        });
+
+        document.addEventListener('touchend', e => {
+            touchendX = e.changedTouches[0].screenX;
+            handleGesture();
+        });
+
+        function handleGesture() {
+            if (touchendX < touchstartX - 50) nextSlide();
+            if (touchendX > touchstartX + 50) prevSlide();
+        }
+
+        // Test Calculations
+        function calculateTest1() {
+            const q1 = document.querySelector('input[name="t1q1"]:checked');
+            const q2 = document.querySelector('input[name="t1q2"]:checked');
+            const q3 = document.querySelector('input[name="t1q3"]:checked');
+            const resultBox = document.getElementById('test1-result');
+
+            if (!q1 || !q2 || !q3) {
+                resultBox.innerHTML = "Por favor, responde a todas las preguntas antes de valorar.";
+                resultBox.classList.remove('hidden');
+                return;
+            }
+
+            const total = parseInt(q1.value) + parseInt(q2.value) + parseInt(q3.value);
+            let feedback = "";
+            if (total >= 11) {
+                feedback = `<strong>Puntuación: ${total}/15 (Liderazgo Directivo Autocrático):</strong> Ejerces un control estricto bajo tensión. Existe un riesgo severo de fatiga en el equipo. Se sugiere incorporar dinámicas de delegación asertiva y consulta colectiva.`;
+            } else if (total >= 7) {
+                feedback = `<strong>Puntuación: ${total}/15 (Liderazgo Balanceado/Situacional):</strong> Consigues regular la tensión y guiar de forma eficiente adaptando el control según la criticidad de la situación. Sigue entrenando la escucha activa.`;
+            } else {
+                feedback = `<strong>Puntuación: ${total}/15 (Liderazgo Democrático o Laissez-faire):</strong> Priorizas el consenso, pero corres el riesgo de perder el control y la estructura en situaciones límite donde se requiera asertividad ejecutiva rápida.`;
+            }
+
+            resultBox.innerHTML = feedback;
+            resultBox.classList.remove('hidden');
+        }
+
+        function calculateTest2() {
+            const chosen = document.querySelector('input[name="t2q"]:checked');
+            const resultBox = document.getElementById('test2-result');
+
+            if (!chosen) {
+                resultBox.innerHTML = "Por favor, selecciona una de las tres opciones.";
+                resultBox.classList.remove('hidden');
+                return;
+            }
+
+            let feedback = "";
+            if (chosen.value === "logro") {
+                feedback = "<strong>Perfil de LOGRO:</strong> Tu motor es el éxito personal y la optimización continua. Tu gran reto es aprender a liderar sin exigir a los demás que compartan tus mismos niveles obsesivos de autoexigencia.";
+            } else if (chosen.value === "poder") {
+                feedback = "<strong>Perfil de PODER:</strong> Te activa tener influencia directa en el destino grupal y el control de la toma de decisiones. Recuerda guiar mediante el liderazgo servicial en lugar de la imposición jerárquica.";
+            } else {
+                feedback = "<strong>Perfil de AFILIACIÓN:</strong> Tu prioridad es la armonía. Eres un constructor de equipos excelente, pero vigila no evitar conversaciones difíciles o la gestión necesaria de conflictos internos por miedo a caer mal.";
+            }
+
+            resultBox.innerHTML = feedback;
+            resultBox.classList.remove('hidden');
+        }
+
+        function calculateTest3() {
+            const q1 = document.querySelector('input[name="t3q1"]:checked');
+            const q2 = document.querySelector('input[name="t3q2"]:checked');
+            const q3 = document.querySelector('input[name="t3q3"]:checked');
+            const resultBox = document.getElementById('test3-result');
+
+            if (!q1 || !q2 || !q3) {
+                resultBox.innerHTML = "Completa todas las valoraciones para evaluar tu perfil de confrontación.";
+                resultBox.classList.remove('hidden');
+                return;
+            }
+
+            const score = parseInt(q1.value) + parseInt(q2.value) + parseInt(q3.value);
+            let feedback = "";
+            if (score >= 11) {
+                feedback = `<strong>Puntuación: ${score}/15 (Estilo Competitivo / Confrontación Directa):</strong> Tiendes a imponer tu criterio y defender tus puntos al máximo. Recuerda incorporar la escucha activa y la asertividad empática para no deteriorar los canales de relación interdepartamentales.`;
+            } else if (score >= 7) {
+                feedback = `<strong>Puntuación: ${score}/15 (Estilo Negociador / Colaborativo):</strong> Buscas equilibrios funcionales entre la defensa de tus intereses técnicos y el mantenimiento del clima del equipo.`;
+            } else {
+                feedback = `<strong>Puntuación: ${score}/15 (Estilo Evitativo o Complaciente):</strong> Prefieres ceder para evitar el estrés del conflicto inmediato. Ten cuidado: posponer sistemáticamente el conflicto suele amplificar la escala de tensión a medio plazo.`;
+            }
+
+            resultBox.innerHTML = feedback;
+            resultBox.classList.remove('hidden');
+        }
+
+        function calculateTest4() {
+            const chosen = document.querySelector('input[name="t4q"]:checked');
+            const resultBox = document.getElementById('test4-result');
+
+            if (!chosen) {
+                resultBox.innerHTML = "Por favor, selecciona tu alternativa estratégica.";
+                resultBox.classList.remove('hidden');
+                return;
+            }
+
+            let feedback = "";
+            if (chosen.value === "competitivo") {
+                feedback = "<strong>Estilo Distributivo (Competitivo):</strong> Negocias sobre una posición inflexible basada en el marco económico directo. Útil en acuerdos aislados, pero debilita drásticamente la relación con el Comité de Empresa a largo plazo.";
+            } else if (chosen.value === "colaborativo") {
+                feedback = "<strong>Estilo Integrativo (Colaborativo):</strong> Negociación estratégica idónea. Trata de agrandar el valor mediante el intercambio y compensación de variables de bienestar, logrando acuerdos sostenibles.";
+            } else {
+                feedback = "<strong>Estilo Complaciente:</strong> Cedes rápidamente ante las presiones sindicales para evitar el conflicto. Riesgo de incurrir en ineficiencias organizativas o pérdidas de productividad severas.";
+            }
+
+            resultBox.innerHTML = feedback;
+            resultBox.classList.remove('hidden');
+        }
+
+        function calculateTest5() {
+            const q1 = document.querySelector('input[name="t5q1"]:checked');
+            const q2 = document.querySelector('input[name="t5q2"]:checked');
+            const q3 = document.querySelector('input[name="t5q3"]:checked');
+            const resultBox = document.getElementById('test5-result');
+
+            if (!q1 || !q2 || !q3) {
+                resultBox.innerHTML = "Por favor, completa todas las preguntas de autorregulación.";
+                resultBox.classList.remove('hidden');
+                return;
+            }
+
+            const score = parseInt(q1.value) + parseInt(q2.value) + parseInt(q3.value);
+            let feedback = "";
+            if (score >= 12) {
+                feedback = `<strong>Puntuación: ${score}/15 (Excelente Inteligencia Emocional):</strong> Identificas tus impulsos corporativos y aplicas el autocontrol consciente. Tu resiliencia actúa como un activo vital en juntas de máxima tensión.`;
+            } else if (score >= 8) {
+                feedback = `<strong>Puntuación: ${score}/15 (Inteligencia Emocional Moderada):</strong> Conoces tus límites, pero bajo máxima presión aún puedes reaccionar de manera reactiva o visceral en momentos puntuales. Sigue entrenando la reestructuración cognitiva.`;
+            } else {
+                feedback = `<strong>Puntuación: ${score}/15 (Necesidad de Desarrollo):</strong> Eres muy vulnerable al secuestro amigdalar. Desarrollar dinámicas de descompresión y diarios de disparadores mitigará la reactividad instintiva.`;
+            }
+
+            resultBox.innerHTML = feedback;
+            resultBox.classList.remove('hidden');
+        }
+    </script>
+</body>
+</html>
